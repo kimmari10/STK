@@ -2,6 +2,7 @@ package com.js.stk;
 
 import org.apache.catalina.connector.Connector;
 import org.springframework.boot.SpringApplication;
+import org.springframework.boot.WebApplicationType;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.boot.web.embedded.tomcat.TomcatServletWebServerFactory;
 import org.springframework.boot.web.servlet.server.ServletWebServerFactory;
@@ -32,7 +33,10 @@ public class StkApplication {
 	}
 
 	public static void main(String[] args) {
-		SpringApplication.run(StkApplication.class, args);
+		SpringApplication app = new SpringApplication(StkApplication.class);
+		app.setWebApplicationType(WebApplicationType.NONE);
+		app.addListeners(new SampleListener());
+		app.run(args);
 	}
 
 }
