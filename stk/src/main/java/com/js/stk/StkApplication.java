@@ -35,7 +35,6 @@ public class StkApplication {
 	public static void main(String[] args) {
 		SpringApplication app = new SpringApplication(StkApplication.class);
 		app.setWebApplicationType(WebApplicationType.NONE);
-		app.addListeners(new SampleListener());
 		app.run(args);
 	}
 
