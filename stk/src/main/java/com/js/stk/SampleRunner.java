@@ -8,13 +8,17 @@ import org.springframework.stereotype.Component;
 @Component
 public class SampleRunner implements ApplicationRunner{
 
-	@Value("${name}")
+	@Value("${js.name}")
 	String name;
+	
+	@Value("${js.age}")
+	int age;
 	
 	
 	@Override
 	public void run(ApplicationArguments args) throws Exception {
-		System.out.println("property name : " + name);
+		System.out.println("js name : " + name);
+		System.out.println("js age : " + age);
 	}
 
 }
