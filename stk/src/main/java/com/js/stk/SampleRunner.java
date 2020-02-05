@@ -9,12 +9,15 @@ import org.springframework.stereotype.Component;
 public class SampleRunner implements ApplicationRunner{
 
 	@Autowired
-	private String hello;
+	private String name;
+	
+	@Autowired
+	private JsProperties jsProperties;
 	
 	@Override
 	public void run(ApplicationArguments args) throws Exception {
 		System.out.println("======================");
-		System.out.println(hello);
+		System.out.println(jsProperties.getName());
 		System.out.println("======================");
 	}
 
