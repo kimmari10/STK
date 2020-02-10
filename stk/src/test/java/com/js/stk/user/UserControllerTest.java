@@ -7,6 +7,7 @@ import static org.springframework.test.web.servlet.request.MockMvcRequestBuilder
 import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.content;
 import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.jsonPath;
 import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.status;
+import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.xpath;
 
 import org.junit.Test;
 import org.junit.runner.RunWith;
@@ -35,12 +36,26 @@ public class UserControllerTest {
 		String userJson = "{\"username\":\"js\", \"password\":\"1234\"}";
 		
 		mockMvc.perform(post("/users/create")
-				.contentType(MediaType.APPLICATION_JSON_UTF8)
-				.accept(MediaType.APPLICATION_JSON_UTF8)
+				.contentType(MediaType.APPLICATION_JSON)
+				.accept(MediaType.APPLICATION_JSON)
 				.content(userJson))
 			.andExpect(status().isOk())
 			.andExpect(jsonPath("$.username", is(equalTo("js"))))
 			.andExpect(jsonPath("$.password", is(equalTo("1234"))));
+	}
+	
+	
+	@Test
+	public void createUser_XML() throws Exception {
+		String userJson = "{\"username\":\"js\", \"password\":\"1234\"}";
+		
+		mockMvc.perform(post("/users/create")
+				.contentType(MediaType.APPLICATION_JSON)
+				.accept(MediaType.APPLICATION_XML)
+				.content(userJson))
+		.andExpect(status().isOk())
+		.andExpect(xpath("/User/username").string("js"))
+		.andExpect(xpath("/User/password").string("1234"));
 	}
 	
 
