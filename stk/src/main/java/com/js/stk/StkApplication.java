@@ -10,9 +10,7 @@ import org.springframework.web.bind.annotation.RestController;
 public class StkApplication {
 
 	public static void main(String[] args) {
-		SpringApplication app = new SpringApplication(StkApplication.class);
-		app.setWebApplicationType(WebApplicationType.SERVLET);
-		app.run(args);
+		SpringApplication.run(StkApplication.class, args);
 	}
 
 }

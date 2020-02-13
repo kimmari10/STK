@@ -12,8 +12,8 @@ public class SampleRunner implements ApplicationRunner{
 
 	private Logger logger = LoggerFactory.getLogger(SampleRunner.class);
 	
-	@Autowired
-	private String name;
+//	@Autowired
+//	private String name;
 	
 	@Autowired
 	private JsProperties jsProperties;
