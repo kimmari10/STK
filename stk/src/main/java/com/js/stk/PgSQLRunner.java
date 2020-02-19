@@ -12,7 +12,7 @@ import org.springframework.jdbc.core.JdbcTemplate;
 import org.springframework.stereotype.Component;
 
 @Component
-public class H2Runner implements ApplicationRunner{
+public class PgSQLRunner implements ApplicationRunner{
 
 	@Autowired
 	DataSource datasource;
@@ -23,14 +23,15 @@ public class H2Runner implements ApplicationRunner{
 	@Override
 	public void run(ApplicationArguments args) throws Exception {
 		try(Connection conn = datasource.getConnection()) {
+			System.out.println(conn.getMetaData().getClass());
 			System.out.println(conn.getMetaData().getURL());
 			System.out.println(conn.getMetaData().getUserName());
 			
 			Statement stmt = conn.createStatement();
-			String sql = "CREATE TABLE USER (ID INTEGER NOT NULL, name VARCHAR(255), PRIMARY KEY (id))";
+			String sql = "CREATE TABLE account(ID INTEGER NOT NULL, name VARCHAR(255), PRIMARY KEY (id))";
 			stmt.executeUpdate(sql);
 		}
 		
-		jdbcTemplate.execute("INSERT INTO USER VALUES (1, 'js')");
+		jdbcTemplate.execute("INSERT INTO account VALUES (1, 'js')");
 	}
 }
