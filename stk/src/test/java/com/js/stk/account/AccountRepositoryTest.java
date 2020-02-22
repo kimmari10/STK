@@ -1,9 +1,10 @@
 package com.js.stk.account;
 
 
-import java.sql.Connection;
-import java.sql.DatabaseMetaData;
+import static org.assertj.core.api.Assertions.assertThat;
+
 import java.sql.SQLException;
+import java.util.Optional;
 
 import javax.sql.DataSource;
 
@@ -29,11 +30,19 @@ public class AccountRepositoryTest {
 	
 	@Test
 	public void di() throws SQLException {
-		try(Connection conn = dataSource.getConnection()) {
-			DatabaseMetaData metaData = conn.getMetaData();
-			System.out.println(metaData.getURL());
-			System.out.println(metaData.getDriverName());
-			System.out.println(metaData.getUserName());
-		} 
+		Account account = new Account();
+		
+		account.setUserName("js");
+		account.setPassword("pass");
+		
+		Account newAccount = accountRepository.save(account);
+		
+		assertThat(newAccount).isNotNull();
+		
+		Optional<Account> existingAccount = accountRepository.findByUserName(newAccount.getUserName());
+		assertThat(existingAccount).isNotEmpty();
+		
+		Optional<Account> nonExistingAccount = accountRepository.findByUserName("kim");
+		assertThat(nonExistingAccount).isEmpty();
 	}
 }
