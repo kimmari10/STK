@@ -22,16 +22,16 @@ public class PgSQLRunner implements ApplicationRunner{
 	
 	@Override
 	public void run(ApplicationArguments args) throws Exception {
-		try(Connection conn = datasource.getConnection()) {
-			System.out.println(conn.getMetaData().getClass());
-			System.out.println(conn.getMetaData().getURL());
-			System.out.println(conn.getMetaData().getUserName());
-			
-			Statement stmt = conn.createStatement();
-			String sql = "CREATE TABLE account(ID INTEGER NOT NULL, name VARCHAR(255), PRIMARY KEY (id))";
-			stmt.executeUpdate(sql);
-		}
+//		try(Connection conn = datasource.getConnection()) {
+//			System.out.println(conn.getMetaData().getClass());
+//			System.out.println(conn.getMetaData().getURL());
+//			System.out.println(conn.getMetaData().getUserName());
+//			
+//			Statement stmt = conn.createStatement();
+//			String sql = "CREATE TABLE account(ID INTEGER NOT NULL, name VARCHAR(255), PRIMARY KEY (id))";
+//			stmt.executeUpdate(sql);
+//		}
 		
-		jdbcTemplate.execute("INSERT INTO account VALUES (1, 'js')");
+//		jdbcTemplate.execute("INSERT INTO account VALUES (1, 'js')");
 	}
 }

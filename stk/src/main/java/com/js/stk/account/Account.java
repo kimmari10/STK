@@ -13,6 +13,8 @@ public class Account {
 	private String userName;
 	
 	private String password;
+	
+	private String nickName;
 
 	public Long getId() {
 		return id;
@@ -36,6 +38,15 @@ public class Account {
 
 	public void setPassword(String password) {
 		this.password = password;
+	}
+	
+	
+	public String getNickName() {
+		return nickName;
+	}
+
+	public void setNickName(String nickName) {
+		this.nickName = nickName;
 	}
 
 	@Override
