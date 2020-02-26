@@ -32,6 +32,12 @@
 		
 		<dependency>
 			<groupId>org.springframework.boot</groupId>
+			<artifactId>spring-boot-starter-security</artifactId>
+		</dependency>
+		
+		<!-- view template -->
+		<dependency>
+			<groupId>org.springframework.boot</groupId>
 			<artifactId>spring-boot-starter-thymeleaf</artifactId>
 		</dependency>
 		
@@ -40,6 +46,7 @@
 			<artifactId>spring-boot-starter-hateoas</artifactId> 
 		</dependency>
 		
+		<!-- database -->
 		<dependency>
 			<groupId>org.springframework.boot</groupId>
 			<artifactId>spring-boot-starter-jdbc</artifactId> 

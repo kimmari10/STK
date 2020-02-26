@@ -9,10 +9,10 @@ import org.springframework.web.bind.annotation.RestController;
 public class UserController {
 
 	
-	@GetMapping("/hello")
+	@GetMapping("/hello1")
 	public String hello() {
 		
-		return "hello";
+		return "hello1";
 	}
 	
 	@PostMapping("/users/create")
