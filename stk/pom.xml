@@ -35,6 +35,13 @@
 			<artifactId>spring-boot-starter-security</artifactId>
 		</dependency>
 		
+		<dependency>
+			<groupId>org.springframework.security</groupId>
+			<artifactId>spring-security-test</artifactId>
+			<version>${spring-security.version}</version>
+			<scope>test</scope>
+		</dependency>
+		
 		<!-- view template -->
 		<dependency>
 			<groupId>org.springframework.boot</groupId>
